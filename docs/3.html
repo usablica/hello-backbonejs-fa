@@ -1,0 +1,81 @@
+<!DOCTYPE html>  <html> <head>     <script type="text/javascript">
+      window.___gcfg = {lang: "en"};
+      (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "https://apis.google.com/js/plusone.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>  <title>3.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>  <div id="container">     <div id="background"></div>            <div id="jump_to">         برو به &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="1.html">                 1.js               </a>                                           <a class="source" href="2.html">                 2.js               </a>                                           <a class="source" href="3.html">                 3.js               </a>                                           <a class="source" href="4.html">                 4.js               </a>                                           <a class="source" href="5.html">                 5.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1 style="direction:ltr;">               3.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p><strong>این مثال چگونگی ذخیره سازی اطلاعات توسط مجموعه ای از Model ها را به ما نمایش میدهد. و نشان میدهد چگونه View این عملیات را اجرا میکند.</strong></p>
+
+<p><em><a href="../3.html">نمونه اجرا شده</a></em> <br />
+<em><a href="4.html">رفتن به مرحله بعدی</a></em></p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p><strong>Item class</strong>: قسمت اصلی Model ما. یک Model پایه که توسط شیء ها در جاوااسکریپت ساخته شده و به وسیله تعدادی تابع کمک کننده رویداد ها را کنترل میکند.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">Item</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">part1</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+      <span class="nx">part2</span><span class="o">:</span> <span class="s1">&#39;world&#39;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>      
+  </pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p><strong>List class</strong>: یک مجموعه یا Collection از <code>Item</code>ها. یک آرایه پایه به همراه تعدادی تابع کمک کننده.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">List</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">model</span><span class="o">:</span> <span class="nx">Item</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">ListView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">),</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;click button#add&#39;</span><span class="o">:</span> <span class="s1">&#39;addItem&#39;</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p><code>initialize()</code>: یک نمونه از Collection, که مسئول اضاف کردن رویداد <code>add</code> برای متد <code>appendItem()</code> است. (تاکید میکنم که Backbonejs توان ارتباط جداگانه و کنترل جداگانه رویدادها را ندارد...).</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">_</span><span class="p">.</span><span class="nx">bindAll</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">,</span> <span class="s1">&#39;addItem&#39;</span><span class="p">,</span> <span class="s1">&#39;appendItem&#39;</span><span class="p">);</span> <span class="c1">// remember: every function that uses &#39;this&#39; as the current object should be in here</span>
+      
+      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">List</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">appendItem</span><span class="p">);</span> <span class="c1">// collection event binder</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>      
+    <span class="p">},</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>ذخیره کردن مراجع(یا همان خروجی متدها) در <code>this</code> که پس از دسترسی به آن، واکنش ها را در آن اعمال میکند.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>      
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;button id=&#39;add&#39;&gt;Add list item&lt;/button&gt;&quot;</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;ul&gt;&lt;/ul&gt;&quot;</span><span class="p">);</span>
+      <span class="nx">_</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">models</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span> <span class="c1">// in case collection is not empty</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">appendItem</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p><code>addItem()</code>: رد و بدل کردن اطلاعات بین View .Collection/model پس از بروزرسانی آن را به اضاف کردن یک شنونده رویداد به <code>appendItem()</code> موکول میکند.(یعنی غالبا خروجی بروزرسانی را در این متد پیکر بندی میکند.)</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">addItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Item</span><span class="p">();</span>
+      <span class="nx">item</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
+        <span class="nx">part2</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part2&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="c1">// modify item defaults</span>
+      <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span> <span class="c1">// add item to collection; view is updated via event &#39;add&#39;</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p><code>appendItem()</code>: این متد باعث ایجاد رویداد اضاف کردن, و کنترل کننده بروزرسانی های بصری میشود که همان خروجی اصلی به حساب می آید. (نسخه پیکربندی شده ی <code>addItem()</code>)</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">appendItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;li&gt;&quot;</span><span class="o">+</span><span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part1&#39;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part2&#39;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&lt;/li&gt;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">listView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ListView</span><span class="p">();</span>
+<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <!-- Twitter link -->
+<div style="float:left; margin-bottom:40px;"><img style="width:42px; margin-right:10px;" src="https://twitter.com/images/resources/twitter-bird-light-bgs.png"/></div> <div style="background:rgb(245,245,255); padding:10px;direction:ltr;"><a href="http://twitter.com/usablica">@usablica</a> - <a href="http://twitter.com/ar2r/">@ar2r</a> :در توییتر دنبال کنید</div></br>
+
+<div style="float: right;" class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false"></div>
+
+<div style="float: right;" class="g-plusone" data-size="medium"></div>
+
+<div class="really_simple_share_twitter" style="width:110px;float: right;"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="آموزش کامل Backbone.js به زبان فارسی" data-via="usablica"></a></div>
+
+<script>
+  if (window.location.href.search(/\?x/) < 0) {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-924459-7']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
