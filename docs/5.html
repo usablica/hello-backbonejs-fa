@@ -1,0 +1,115 @@
+<!DOCTYPE html>  <html> <head>      <script type="text/javascript">
+      window.___gcfg = {lang: "en"};
+      (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "https://apis.google.com/js/plusone.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> <title>5.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> <div id="container">     <div id="background"></div>            <div id="jump_to">         برو به &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="1.html">                 1.js               </a>                                           <a class="source" href="2.html">                 2.js               </a>                                           <a class="source" href="3.html">                 3.js               </a>                                           <a class="source" href="4.html">                 4.js               </a>                                           <a class="source" href="5.html">                 5.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1 style="direction:ltr;">               5.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p><strong>این مثال نشان میدهد که چگونه دو Model جدید آیتم های خروجی را تغییر میدهند و پاک میکنند, و نشان میدهد چگونه چنین عملی در View مربوط به Model انجام میپذیرد.</strong></p>
+
+<p><em><a href="../5.html">نمونه اجرا شده</a></em></p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p><code>Backbone.sync</code>: عملکرد ذخیره سازی مداوم و بیهوده را لغو میکند. که به وسیله <code>Model.destroy()</code> کار خواهد کرد بدون هیچ خطایی.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">Backbone</span><span class="p">.</span><span class="nx">sync</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">success</span><span class="p">,</span> <span class="nx">error</span><span class="p">){</span> 
+    <span class="nx">success</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="kd">var</span> <span class="nx">Item</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">part1</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+      <span class="nx">part2</span><span class="o">:</span> <span class="s1">&#39;world&#39;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+  
+  <span class="kd">var</span> <span class="nx">List</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">model</span><span class="o">:</span> <span class="nx">Item</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">ItemView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">tagName</span><span class="o">:</span> <span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="c1">// name of tag to be created        </span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p><code>ItemView</code>ها به 2 عمل پاسخ نشان خواهند داد،: تغییر و حذف.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span> 
+      <span class="s1">&#39;click span.swap&#39;</span><span class="o">:</span>  <span class="s1">&#39;swap&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;click span.delete&#39;</span><span class="o">:</span> <span class="s1">&#39;remove&#39;</span>
+    <span class="p">},</span>    </pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p><code>initialize()</code> اتصالات Model را برقرار میکند تا بر حذف شدن و تغییر کردن  کنترل داشته باشند.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">_</span><span class="p">.</span><span class="nx">bindAll</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">,</span> <span class="s1">&#39;unrender&#39;</span><span class="p">,</span> <span class="s1">&#39;swap&#39;</span><span class="p">,</span> <span class="s1">&#39;remove&#39;</span><span class="p">);</span> <span class="c1">// every function that uses &#39;this&#39; as the current object should be in here</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;remove&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">unrender</span><span class="p">);</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p><code>render()</code> نصب و پایه گذاری تگ های <code>span</code> که به عمل های حذف و تغییر مربوط هستند.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;span style=&quot;color:black;&quot;&gt;&#39;</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part1&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part2&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&lt;/span&gt; &amp;nbsp; &amp;nbsp; &lt;span class=&quot;swap&quot; style=&quot;font-family:sans-serif; color:blue; cursor:pointer;&quot;&gt;[swap]&lt;/span&gt; &lt;span class=&quot;delete&quot; style=&quot;cursor:pointer; color:red; font-family:sans-serif;&quot;&gt;[delete]&lt;/span&gt;&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">;</span> <span class="c1">// for chainable calls, like .render().el</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p><code>unrender()</code>: آیتم ها را از DOM یا همان محتویات صفحه حذف میکند.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">unrender</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p><code>swap()</code>: یک آیتم را از سر مشخصه های او، تغییر میدهد. زمانی که <code>set()</code> فراخوانده میشود, تغییرات انجام میپذیرد.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">swap</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="kd">var</span> <span class="nx">swapped</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">part1</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part2&#39;</span><span class="p">),</span> 
+        <span class="nx">part2</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part1&#39;</span><span class="p">)</span>
+      <span class="p">};</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">swapped</span><span class="p">);</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p><code>remove()</code>: در این متد ما از <code>destroy()</code> برای حذف یک مدل از Collection استفاده میکنیم. به طور معمول از این متد برای حذف اطلاعات استفاده خواهید کرد.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">remove</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>زیرا ویژگی های ذاتی(تغییر و حذف) برای هر یک از آیتم ها, دیگر نیازی به تغییر <code>ListView</code> ندارند.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">ListView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">),</span> <span class="c1">// el attaches to existing element</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;click button#add&#39;</span><span class="o">:</span> <span class="s1">&#39;addItem&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">_</span><span class="p">.</span><span class="nx">bindAll</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">,</span> <span class="s1">&#39;addItem&#39;</span><span class="p">,</span> <span class="s1">&#39;appendItem&#39;</span><span class="p">);</span> <span class="c1">// every function that uses &#39;this&#39; as the current object should be in here</span>
+      
+      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">List</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">appendItem</span><span class="p">);</span> <span class="c1">// collection event binder</span>
+
+      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;button id=&#39;add&#39;&gt;Add list item&lt;/button&gt;&quot;</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;ul&gt;&lt;/ul&gt;&quot;</span><span class="p">);</span>
+      <span class="nx">_</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">models</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span> <span class="c1">// in case collection is not empty</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">appendItem</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">addItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Item</span><span class="p">();</span>
+      <span class="nx">item</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
+        <span class="nx">part2</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;part2&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="c1">// modify item defaults</span>
+      <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">appendItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
+      <span class="kd">var</span> <span class="nx">itemView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ItemView</span><span class="p">({</span>
+        <span class="nx">model</span><span class="o">:</span> <span class="nx">item</span>
+      <span class="p">});</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">itemView</span><span class="p">.</span><span class="nx">render</span><span class="p">().</span><span class="nx">el</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">listView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ListView</span><span class="p">();</span>
+<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <!-- Twitter link -->
+<div style="float:left; margin-bottom:40px;"><img style="width:42px; margin-right:10px;" src="https://twitter.com/images/resources/twitter-bird-light-bgs.png"/></div> <div style="background:rgb(245,245,255); padding:10px;direction:ltr;"><a href="http://twitter.com/usablica">@usablica</a> - <a href="http://twitter.com/ar2r/">@ar2r</a> :در توییتر دنبال کنید</div></br>
+
+<div style="float: right;" class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false"></div>
+
+<div style="float: right;" class="g-plusone" data-size="medium"></div>
+
+<div class="really_simple_share_twitter" style="width:110px;float: right;"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="آموزش کامل Backbone.js به زبان فارسی" data-via="usablica"></a></div>
+<script>
+  if (window.location.href.search(/\?x/) < 0) {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-924459-7']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>  <html> <head>      <script type="text/javascript">
+      window.___gcfg = {lang: "en"};
+      (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "https://apis.google.com/js/plusone.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> <title>2.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> <div id="container">     <div id="background"></div>            <div id="jump_to">         برو به &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="1.html">                 1.js               </a>                                           <a class="source" href="2.html">                 2.js               </a>                                           <a class="source" href="3.html">                 3.js               </a>                                           <a class="source" href="4.html">                 4.js               </a>                                           <a class="source" href="5.html">                 5.js               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs"  style="direction:ltr;">             <h1>               2.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p><strong>این مثال، چگونگی عملکرد رویدادهای DOM توسط متدها را نمایش میدهد.</strong></p>
+
+<p><em><a href="../2.html">نمونه اجرا شده</a></em> <br />
+<em><a href="3.html">رفتن به مرحله بعدی</a></em></p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">ListView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">el</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">),</span> <span class="c1">// el attaches to existing element</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p><code>events</code>: رویدادهای DOM در این برنامه وابسته به متدهای View میباشد. Backbone توان کنترل جداگانه این اتصالات را متاسفانه ندارد. این ها همه در یک متد اتفاق می افتد تا فریمورک بتواند این رویداد ها را کنترل کند.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;click button#add&#39;</span><span class="o">:</span> <span class="s1">&#39;addItem&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">_</span><span class="p">.</span><span class="nx">bindAll</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">,</span> <span class="s1">&#39;addItem&#39;</span><span class="p">);</span> <span class="c1">// every function that uses &#39;this&#39; as the current object should be in here</span>
+      
+      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// total number of items added thus far</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p><code>render()</code>: یک کلید که پس از فشار داده شدن آن، یک متد دیگر به اسم <code>addItem()</code> اجرا میشود.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;button id=&#39;add&#39;&gt;Add list item&lt;/button&gt;&quot;</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;ul&gt;&lt;/ul&gt;&quot;</span><span class="p">);</span>
+    <span class="p">},</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p><code>addItem()</code>: این تابع، پس از فراخوانی متد قبلی، توسط رویداد همان رویداد به لیست یک آیتم اضاف می نماید.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">addItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">el</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;li&gt;hello world&quot;</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">counter</span><span class="o">+</span><span class="s2">&quot;&lt;/li&gt;&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">listView</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ListView</span><span class="p">();</span>      
+<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <!-- Twitter link -->
+<div style="float:left; margin-bottom:40px;"><img style="width:42px; margin-right:10px;" src="https://twitter.com/images/resources/twitter-bird-light-bgs.png"/></div> <div style="background:rgb(245,245,255); padding:10px;direction:ltr;"><a href="http://twitter.com/usablica">@usablica</a> - <a href="http://twitter.com/ar2r/">@ar2r</a> :در توییتر دنبال کنید</div></br>
+
+<div style="float: right;" class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false"></div>
+
+<div style="float: right;" class="g-plusone" data-size="medium"></div>
+
+<div class="really_simple_share_twitter" style="width:110px;float: right;"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="آموزش کامل Backbone.js به زبان فارسی" data-via="usablica"></a></div>
+<script>
+  if (window.location.href.search(/\?x/) < 0) {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-924459-7']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
